@@ -1,0 +1,10 @@
+.menu-list {
+    list-style: none;
+    display: flex;
+    
+}
+
+.menu-list li a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,0 +1,32 @@
+.header-main {
+    width: 100%;
+    background: url(../assets/blog.jpg) no-repeat center center;
+}
+
+.header-main-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.534);
+  height: 35vh;
+}
+
+.header-main-inner ul {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.header-main-inner h1 {
+    color: #fff;
+    font-weight: 900;
+    margin-top: 90px;
+}
+
+.header-main-inner p {
+    color: #fff;
+    font-weight: 900;
+}
