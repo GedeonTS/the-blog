@@ -1,3 +1,11 @@
+.homepage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .header-main {
     width: 100%;
     background: url(../assets/blog.jpg) no-repeat center center;
@@ -29,4 +37,28 @@
 .header-main-inner p {
     color: #fff;
     font-weight: 900;
+}
+
+.content-wrapper {
+    min-width: 350px;
+    max-width: 1000px;
+    width: 70%;
+}
+
+.blogs-list {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+list-style: none;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.blogs-list li {
+
+}
+
+.blogs-list-item-image {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
 }
