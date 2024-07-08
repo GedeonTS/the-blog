@@ -40,9 +40,8 @@
 }
 
 .content-wrapper {
-    min-width: 350px;
-    max-width: 1000px;
     width: 70%;
+    min-width: 350px;
 }
 
 .blogs-list {

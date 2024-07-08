@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "../components/Menu";
 import "./styles.css";
 import horizon from "../assets/horizon.jpg";
+import Footer from "../components/Footer";
 
 function Homepage() {
 
@@ -19,8 +20,7 @@ function Homepage() {
           <div className="header-main-inner-title">
             <h1>Welcome to my blog</h1>
             <p>
-              Here you will find all the latest news and updates from the world
-              of tech
+              Here you will find all the latest news and updates from the world of tech
             </p>
           </div>
         </div>
@@ -70,6 +70,7 @@ function Homepage() {
           </li>
         </ul>
       </div>
+      <Footer />
     </div>
   );
 }
