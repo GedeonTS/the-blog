@@ -22,6 +22,13 @@ function Menu() {
           </li>
         );
       })}
+      <li>
+        <Link to={"/blog"}>
+          <div className="h-[2.2rem] pl-[1rem] pr-[1rem] rounded-lg border border-white flex items-center justify-center text-white bg-blue-950">
+            Blog
+          </div>
+        </Link>
+      </li>
     </ul>
   );
 }
