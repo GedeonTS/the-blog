@@ -5,8 +5,8 @@ import horizon from "../assets/horizon.jpg";
 import Footer from "../components/Footer";
 
 function Homepage() {
-
-  const text ="Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1"
+  const text =
+    "Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1";
   return (
     <div className="homepage">
       <div className="header-main">
@@ -20,7 +20,8 @@ function Homepage() {
           <div className="header-main-inner-title">
             <h1>Welcome to my blog</h1>
             <p>
-              Here you will find all the latest news and updates from the world of tech
+              Here you will find all the latest news and updates from the world
+              of tech
             </p>
           </div>
         </div>
@@ -29,44 +30,80 @@ function Homepage() {
         <h2>Recent posts</h2>
         <ul className="blogs-list">
           <li>
-            <a href="/post/1"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/1">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/2"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/2">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/3"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/3">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/1"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/1">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/2"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/2">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/3"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/3">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
         </ul>
 
         <h2>More posts</h2>
         <ul className="blogs-list">
           <li>
-            <a href="/post/1"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/1">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/2"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/2">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/3"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/3">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/1"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/1">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/2"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/2">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
           <li>
-            <a href="/post/3"><img src={horizon} className="blogs-list-item-image" alt="" />{text}</a>
+            <a href="/post/3">
+              <img src={horizon} className="blogs-list-item-image" alt="" />
+              {text}
+            </a>
           </li>
         </ul>
       </div>

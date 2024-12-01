@@ -1,14 +1,32 @@
-import React from 'react'
-import './styles.css'
+import React, { useEffect } from "react";
+import "./styles.css";
+import { Link, useLocation } from "react-router-dom";
 
 function Menu() {
+  const location = useLocation();
+
+  const routes = [
+    { to: "/", name: "Home" },
+    { to: "/about", name: "About" },
+    { to: "/contact", name: "Contact" },
+  ];
+
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
   return (
-      <ul className='menu-list'>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-  )
+    <ul className="flex items-center gap-4">
+      {routes.map((route) => {
+        return (
+          <li
+            className={`${location.pathname === route.to ? "underline" : ""}`}
+          >
+            <Link to={route.to}>{route.name}</Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
-export default Menu
+export default Menu;

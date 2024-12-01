@@ -1,7 +1,7 @@
 import React from "react";
 
-function CTA() {
+function Suggestions() {
   return <div></div>;
 }
 
-export default CTA;
+export default Suggestions;
