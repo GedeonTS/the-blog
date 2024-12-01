@@ -11,9 +11,6 @@ function Menu() {
     { to: "/contact", name: "Contact" },
   ];
 
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
   return (
     <ul className="flex items-center gap-4">
       {routes.map((route) => {
