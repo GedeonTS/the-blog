@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const postsSlice = createSlice({ name: "posts" });
+const initialState = {};
+
+const postsSlice = createSlice({ name: "posts", initialState });
 
 export default postsSlice.reducer;

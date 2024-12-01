@@ -4,18 +4,22 @@ import Blog from "./pages/Blog";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/blog" element={<Blog />} />
-        <Route exact path="/post/:id" element={<Blog />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/blog" element={<Blog />} />
+          <Route exact path="/post/:id" element={<Blog />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
