@@ -67,6 +67,26 @@ function Homepage() {
           </div>
         </div>
       </div>
+      <div>
+        <h3 className="font-semibold text-3xl text-primary-950 my-6 text-center">
+          Contact me
+        </h3>
+      </div>
+      <div className="w-full grid grid-cols-2 gap-4 p-4">
+        <div className="w-full grid grid-cols-1 gap-4">
+          <input
+            type="text"
+            className="h-[2.4rem] pl-4 focus:outline-none border border-primary-300 w-full focus:border-2 focus:border-primary-950"
+          />
+          <textarea className="h-[20rem] p-4 focus:outline-none border border-primary-300 w-full focus:border-2 focus:border-primary-950"></textarea>
+          <div className="w-full flex items-center justify-center">
+            <button className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md">
+              Submit
+            </button>
+          </div>
+        </div>
+        <div></div>
+      </div>
       <Footer />
     </div>
   );
