@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import NewPost from "./pages/NewPost";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/post/:id" element={<Blog />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/newpost" element={<NewPost />} />
         </Routes>
       </BrowserRouter>
     </Provider>
