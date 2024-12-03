@@ -8,7 +8,6 @@ function Blog() {
   return (
     <div>
       <NavBar />
-
       <section className="w-full" id="home">
         <div className="w-full flex items-center justify-center py-[2rem] border-b border-primary-200">
           <div className="flex flex-col items-center justify-center gap-4">

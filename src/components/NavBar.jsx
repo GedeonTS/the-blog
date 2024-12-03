@@ -27,6 +27,13 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
+          <Link to={"/newpost"}>
+            <div className="h-[2rem] text-primary-950 hover:bg-primary-950 hover:text-white flex items-center justify-center px-4 rounded-lg border border-primary-300">
+              new post
+            </div>
+          </Link>
+        </li>
+        <li>
           <button
             className="flex gap-4 items-center border border-primary-200 h-[2rem] rounded-full px-2"
             onClick={() => setIsDark(!isDark)}
