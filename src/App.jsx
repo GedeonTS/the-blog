@@ -15,10 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/blog" element={<Blog />} />
-          <Route exact path="/post/:id" element={<Blog />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/newpost" element={<NewPost />} />
+          {/* <Route exact path="/post/:id" element={<Blog />} /> */}
         </Routes>
       </BrowserRouter>
     </Provider>

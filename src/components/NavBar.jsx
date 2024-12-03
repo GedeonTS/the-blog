@@ -20,7 +20,7 @@ const NavBar = () => {
           <a href="#contact">Contact</a>
         </li>
         <li>
-          <Link>
+          <Link to={"/blog"}>
             <div className="h-[2rem] bg-primary-950 text-white flex items-center justify-center px-4 rounded-lg">
               Blog
             </div>
