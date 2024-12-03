@@ -11,13 +11,13 @@ const NavBar = () => {
       <h1 className="font-semibold">Ushindi's Blog</h1>
       <ul className="flex gap-4 items-center font-semibold">
         <li>
-          <Link>Home</Link>
+          <a href="#home">Home</a>
         </li>
         <li>
-          <Link>About</Link>
+          <a href="#about">About</a>
         </li>
         <li>
-          <Link>Contact</Link>
+          <a href="#contact">Contact</a>
         </li>
         <li>
           <Link>
