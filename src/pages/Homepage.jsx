@@ -5,6 +5,7 @@ import horizon from "../assets/horizon.jpg";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
+import CircularIconBtn from "../components/CircularIconBtn";
 
 function Homepage() {
   const text =
@@ -72,7 +73,7 @@ function Homepage() {
           Contact me
         </h3>
       </div>
-      <div className="w-full grid grid-cols-2 gap-4 p-4">
+      <div className="w-full grid sm:grid-cols-1 lg:grid-cols-2 gap-4 p-4">
         <div className="w-full grid grid-cols-1 gap-4">
           <input
             type="text"
@@ -85,7 +86,21 @@ function Homepage() {
             </button>
           </div>
         </div>
-        <div></div>
+        <div>
+          <p className="text-lg text-primary-700">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ad
+            praesentium officiis. Veritatis sequi repellendus quos ducimus
+            recusandae accusantium dolores delectus repellat? Explicabo autem
+            nulla quibusdam in saepe minima corrupti quis velit quidem?
+          </p>
+          <div className="w-full flex gap-3 items-center my-8">
+            <CircularIconBtn />
+            <CircularIconBtn />
+            <CircularIconBtn />
+            <CircularIconBtn />
+            <CircularIconBtn />
+          </div>
+        </div>
       </div>
       <Footer />
     </div>
