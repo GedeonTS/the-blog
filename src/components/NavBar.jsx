@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { AiOutlineMoon } from "react-icons/ai";
-import { FaCircle } from "react-icons/fa";
-import { GoSun } from "react-icons/go";
+import React from "react";
 import { Link } from "react-router-dom";
+import ToggleThemeBtn from "./ToggleThemeBtn";
 
 const NavBar = () => {
-  const [isDark, setIsDark] = useState(false);
   return (
-    <nav className="h-[3rem] px-8 flex items-center justify-between border-b border-b-primary-100 bg-white fixed top-0 left-0 right-0">
+    <nav className="h-[3rem] px-8 flex items-center justify-between border-b border-b-primary-100 bg-white fixed top-0 left-0 right-0 dark:text-white dark:bg-primary-950">
       <h1 className="font-semibold">Ushindi's Blog</h1>
       <ul className="flex gap-4 items-center font-semibold">
         <li>
@@ -34,22 +31,7 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <button
-            className="flex gap-4 items-center border border-primary-200 h-[2rem] rounded-full px-2"
-            onClick={() => setIsDark(!isDark)}
-          >
-            {isDark ? (
-              <>
-                <FaCircle size={20} />
-                <GoSun size={20} />
-              </>
-            ) : (
-              <>
-                <AiOutlineMoon size={20} />
-                <FaCircle size={20} />
-              </>
-            )}
-          </button>
+          <ToggleThemeBtn />
         </li>
       </ul>
     </nav>

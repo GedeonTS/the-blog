@@ -17,12 +17,12 @@ function Homepage() {
   const text =
     "Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1";
   return (
-    <div className="homepage">
+    <div className=" dark:bg-primary-950">
       <NavBar />
       <section className="w-full" id="home">
         <div className="w-full flex items-center justify-center py-[2rem] border-b border-primary-200">
           <div className="flex flex-col items-center justify-center gap-4">
-            <h2 className="font-semibold text-6xl text-primary-950 mt-[3rem]">
+            <h2 className="font-semibold text-6xl text-primary-950 mt-[3rem] dark:text-white">
               USHINDI GEDEON
             </h2>
             <p className="text-lg text-primary-500">Full stack developer</p>

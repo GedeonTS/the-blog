@@ -6,11 +6,13 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import NewPost from "./pages/NewPost";
 import Post from "./pages/Post";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/blog" element={<Blog />} />
