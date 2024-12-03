@@ -25,7 +25,7 @@ const NavBar = () => {
         </li>
         <li>
           <Link to={"/newpost"}>
-            <div className="h-[2rem] text-primary-950 hover:bg-primary-950 hover:text-white flex items-center justify-center px-4 rounded-lg border border-primary-300">
+            <div className="h-[2rem] text-primary-950 hover:bg-primary-950 hover:text-white flex items-center justify-center px-4 rounded-lg border border-primary-300 dark:text-primary-400">
               new post
             </div>
           </Link>

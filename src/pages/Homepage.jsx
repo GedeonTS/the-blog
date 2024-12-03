@@ -20,7 +20,7 @@ function Homepage() {
     <div className=" dark:bg-primary-950">
       <NavBar />
       <section className="w-full" id="home">
-        <div className="w-full flex items-center justify-center py-[2rem] border-b border-primary-200">
+        <div className="w-full flex items-center justify-center py-[2rem] border-b border-primary-200 dark:border-primary-800">
           <div className="flex flex-col items-center justify-center gap-4">
             <h2 className="font-semibold text-6xl text-primary-950 mt-[3rem] dark:text-white">
               USHINDI GEDEON
@@ -92,20 +92,20 @@ function Homepage() {
           <div className="w-full grid grid-cols-1 gap-4">
             <input
               type="text"
-              className="h-[3rem] pl-4 focus:outline-none border border-primary-300 w-full focus:border-2 focus:border-primary-950"
+              className="h-[3rem] pl-4 focus:outline-none border border-primary-300 dark:text-primary-300 dark:bg-primary-950 dark:border-primary-700 w-full focus:border-2 focus:border-primary-950"
               placeholder="Your email address"
             />
             <input
               type="text"
-              className="h-[3rem] pl-4 focus:outline-none border border-primary-300 w-full focus:border-2 focus:border-primary-950"
+              className="h-[3rem] pl-4 focus:outline-none border border-primary-300 dark:bg-primary-950  dark:text-primary-300 dark:border-primary-700 w-full focus:border-2 focus:border-primary-950"
               placeholder="Subject"
             />
             <textarea
-              className="h-[20rem] p-4 focus:outline-none border border-primary-300 w-full focus:border-2 focus:border-primary-950"
+              className="h-[20rem] p-4 focus:outline-none border border-primary-300 dark:text-primary-300 dark:bg-primary-950 dark:border-primary-700 w-full focus:border-2 focus:border-primary-950"
               placeholder="Your message"
             ></textarea>
             <div className="w-full flex items-center justify-center">
-              <button className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md">
+              <button className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md dark:bg-primary-400">
                 Submit
               </button>
             </div>
