@@ -6,6 +6,12 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
 import CircularIconBtn from "../components/CircularIconBtn";
+import { LiaLinkedin } from "react-icons/lia";
+import { BsLinkedin, BsMedium, BsTwitter } from "react-icons/bs";
+import { FaLinkedin, FaMedium } from "react-icons/fa";
+import { GrGithub } from "react-icons/gr";
+import { PiOpenAiLogo } from "react-icons/pi";
+import { FiLinkedin } from "react-icons/fi";
 
 function Homepage() {
   const text =
@@ -34,8 +40,14 @@ function Homepage() {
         <h2 className="font-semibold text-primary-950 text-3xl my-6 text-center">
           About me
         </h2>
-        <div className="grid grid-cols-2 gap-4">
-          <img src={horizon} alt="" className="rounded-4xl" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="w-full h-full rounded-[4rem] overflow-hidden">
+            <img
+              src={horizon}
+              alt=""
+              className="h-full w-full overflow-hidden"
+            />
+          </div>
           <div>
             <p className="text-lg text-primary-700">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ad
@@ -56,7 +68,7 @@ function Homepage() {
           <h2 className="font-semibold text-3xl text-primary-950 text-center my-6">
             Recent posts
           </h2>
-          <div className="grid grid-cols-3 gap-4 gap-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <PostCard />
             ))}
@@ -94,11 +106,10 @@ function Homepage() {
             nulla quibusdam in saepe minima corrupti quis velit quidem?
           </p>
           <div className="w-full flex gap-3 items-center my-8">
-            <CircularIconBtn />
-            <CircularIconBtn />
-            <CircularIconBtn />
-            <CircularIconBtn />
-            <CircularIconBtn />
+            <CircularIconBtn icon={<FiLinkedin size={24} />} />
+            <CircularIconBtn icon={<BsTwitter size={24} />} />
+            <CircularIconBtn icon={<BsMedium size={24} />} />
+            <CircularIconBtn icon={<GrGithub size={24} />} />
           </div>
         </div>
       </div>
