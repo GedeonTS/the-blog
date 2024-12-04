@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import planeImg from "../mockingdata/images/serve-air-airplane.jpg";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaRegCommentAlt } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { GoPlus } from "react-icons/go";
+import LoginPopup from "../popups/LoginPopup";
+import SignUpPopup from "../popups/SignUpPopup";
 
 const Post = ({ post }) => {
+  const [isLogingIn, setIsLogingIn] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
   return (
     <div className="w-full min-h-0[100vh] dark:bg-primary-950">
       <NavBar />
+      {isLogingIn && <LoginPopup closeHandler={() => setIsLogingIn(false)} />}
+      {isSigningUp && (
+        <SignUpPopup closeHandler={() => setIsSigningUp(false)} />
+      )}
       <section className="w-full" id="home">
         <div className="w-full flex flex-col items-center justify-center py-[2rem] border-b border-primary-200 dark:border-primary-700">
           <div className="flex flex-col items-center justify-center gap-4">
@@ -21,7 +29,7 @@ const Post = ({ post }) => {
             </p>
           </div>
           <div className="flex gap-4 mt-6 text-primary-950 dark:text-primary-200">
-            <AiOutlineLike size={24} />
+            <AiOutlineLike size={24} onClick={() => setIsLogingIn(true)} />
             <AiFillLike size={24} />
             <a href="#comments">
               <FaRegCommentAlt size={24} />
@@ -67,7 +75,10 @@ const Post = ({ post }) => {
             <h2 className="font-semibold text-2xl text-primary-950 dark:text-primary-200">
               COMMENTS
             </h2>
-            <button className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md dark:text-primary-950 dark:bg-white">
+            <button
+              className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md dark:text-primary-950 dark:bg-white"
+              onClick={() => setIsSigningUp(true)}
+            >
               <GoPlus size={24} />
               <span>Add comment</span>
             </button>
