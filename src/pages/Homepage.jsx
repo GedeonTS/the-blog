@@ -29,7 +29,7 @@ function Homepage() {
           </div>
         </div>
         <div className=" self-center my-6">
-          <h1 className="text-center font-semibold text-2xl text-primary-950">
+          <h1 className="text-center font-semibold text-2xl text-primary-950 dark:text-primary-200">
             Welcome to my blog
           </h1>
           <p className="text-center font-semibold text-primary-400">
@@ -39,7 +39,7 @@ function Homepage() {
         </div>
       </section>
       <section className="p-6" id="about">
-        <h2 className="font-semibold text-primary-950 text-3xl my-6 text-center">
+        <h2 className="font-semibold text-primary-950 text-3xl my-6 text-center dark:text-primary-200">
           About me
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -61,14 +61,14 @@ function Homepage() {
               adipisicing elit. Minus molestias ullam aut adipisci quod dolorem
               error soluta aspernatur rerum itaque explicabo.
             </p>
-            <button className="bg-primary-950 text-white h-[2.4rem] rounded-md px-4 my-6">
+            <button className="bg-primary-950 text-white h-[2.4rem] rounded-md px-4 my-6 dark:text-primary-950 dark:bg-primary-300">
               see portfolio
             </button>
           </div>
         </div>
       </section>
       <section className="w-full px-4" id="posts">
-        <h2 className="font-semibold text-3xl text-primary-950 text-center my-6">
+        <h2 className="font-semibold text-3xl text-primary-950 text-center my-6 dark:text-primary-300">
           Recent posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
@@ -77,14 +77,14 @@ function Homepage() {
           ))}
         </div>
         <div className="flex items-center justify-center">
-          <button className="h-[2.4rem] px-[2rem] rounded-md bg-primary-950 text-white self-center">
+          <button className="h-[2.4rem] px-[2rem] rounded-md bg-primary-950 text-white self-center dark:bg-primary-300 dark:text-primary-950">
             See all
           </button>
         </div>
       </section>
       <section className="w-full pt-6" id="contact">
         <div>
-          <h3 className="font-semibold text-3xl text-primary-950 my-6 text-center">
+          <h3 className="font-semibold text-3xl text-primary-950 my-6 text-center dark:text-primary-300">
             Contact me
           </h3>
         </div>
@@ -105,7 +105,7 @@ function Homepage() {
               placeholder="Your message"
             ></textarea>
             <div className="w-full flex items-center justify-center">
-              <button className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md dark:bg-primary-400">
+              <button className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md dark:bg-primary-400 dark:text-primary-950">
                 Submit
               </button>
             </div>

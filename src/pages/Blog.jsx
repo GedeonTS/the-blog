@@ -27,7 +27,7 @@ function Blog() {
         </div>
       </section>
       <section className="w-full p-4">
-        <h2 className="font-semibold text-4xl text-center text-primary-950 my-8">
+        <h2 className="font-semibold text-4xl text-center text-primary-950 my-8 dark:text-primary-300">
           Recent posts
         </h2>
         <div className="w-full md:w-[75%] mx-auto my-4 gap-4">
@@ -39,7 +39,7 @@ function Blog() {
         </div>
       </section>
       <section className="w-full p-4">
-        <h2 className="font-semibold text-center text-4xl text-primary-950 my-8">
+        <h2 className="font-semibold text-center text-4xl text-primary-950 my-8 dark:text-primary-300">
           All the posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">

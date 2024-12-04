@@ -12,11 +12,11 @@ const PostCard = () => {
       onClick={clickHandler}
     >
       <div>
-        <p className="text-blue-400 text-sm">Jan, 13 2024</p>
         <img src={placeholderImage} alt="" />
       </div>
       <div>
-        <h3 className="font-semibold text-primary-950">
+        <p className="text-blue-400 text-sm">Jan, 13 2024</p>
+        <h3 className="font-semibold text-primary-950 dark:text-primary-300">
           React native development
         </h3>
         <p className="text-primary-700 text-sm">
