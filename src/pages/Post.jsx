@@ -14,9 +14,23 @@ const Post = ({ post }) => {
   return (
     <div className="w-full min-h-0[100vh] dark:bg-primary-950">
       <NavBar />
-      {isLogingIn && <LoginPopup closeHandler={() => setIsLogingIn(false)} />}
+      {isLogingIn && (
+        <LoginPopup
+          closeHandler={() => setIsLogingIn(false)}
+          signUpHandler={() => {
+            setIsLogingIn(false);
+            setIsSigningUp(true);
+          }}
+        />
+      )}
       {isSigningUp && (
-        <SignUpPopup closeHandler={() => setIsSigningUp(false)} />
+        <SignUpPopup
+          closeHandler={() => setIsSigningUp(false)}
+          loginHandler={() => {
+            setIsSigningUp(false);
+            setIsLogingIn(true);
+          }}
+        />
       )}
       <section className="w-full" id="home">
         <div className="w-full flex flex-col items-center justify-center py-[2rem] border-b border-primary-200 dark:border-primary-700">

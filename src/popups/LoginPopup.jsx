@@ -2,7 +2,7 @@ import React from "react";
 import { IoClose } from "react-icons/io5";
 import TextInput from "../components/TextInput";
 
-const LoginPopup = ({ closeHandler }) => {
+const LoginPopup = ({ closeHandler, signUpHandler }) => {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-primary-950/25 backdrop-blur-sm flex items-center justify-center">
       <div className="w-[35rem] p-4 bg-white  dark:bg-primary-950 dark:border-primary-700 dark:border">
@@ -32,7 +32,10 @@ const LoginPopup = ({ closeHandler }) => {
           </button>
         </div>
         <div className="flex  items-end justify-end w-full">
-          <button className="text-primary-950 dark:text-primary-200">
+          <button
+            className="text-primary-950 dark:text-primary-200"
+            onClick={signUpHandler}
+          >
             Sign Up
           </button>
         </div>
