@@ -8,19 +8,19 @@ import { GoPlus } from "react-icons/go";
 
 const Post = ({ post }) => {
   return (
-    <div className="w-full">
+    <div className="w-full min-h-0[100vh] dark:bg-primary-950">
       <NavBar />
       <section className="w-full" id="home">
-        <div className="w-full flex flex-col items-center justify-center py-[2rem] border-b border-primary-200">
+        <div className="w-full flex flex-col items-center justify-center py-[2rem] border-b border-primary-200 dark:border-primary-700">
           <div className="flex flex-col items-center justify-center gap-4">
-            <h2 className="font-semibold text-4xl text-primary-950 mt-[3rem]">
+            <h2 className="font-semibold text-4xl text-primary-950 mt-[3rem] dark:text-primary-200">
               REACT NATIVE DEVELOPMENT
             </h2>
             <p className="text-lg text-primary-500">
               by GEDEON TSHOBOHWA (Full stack developer)
             </p>
           </div>
-          <div className="flex gap-4 mt-6 text-primary-950">
+          <div className="flex gap-4 mt-6 text-primary-950 dark:text-primary-200">
             <AiOutlineLike size={24} />
             <AiFillLike size={24} />
             <a href="#comments">
@@ -33,10 +33,10 @@ const Post = ({ post }) => {
         <img src={planeImg} className="w-full" />
         {[1, 2, 3, 4, 5].map((number) => (
           <div>
-            <h4 className="font-semibold text-2xl text-primary-950 my-4">
+            <h4 className="font-semibold text-2xl text-primary-950 my-4 dark:text-primary-200">
               Section title number one
             </h4>
-            <p className="text-primary-600">
+            <p className="text-primary-600 dark:text-primary-400">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Reprehenderit libero, magnam eaque nam labore voluptatum cum saepe
               omnis aliquam provident expedita, in, laboriosam et illo? Atque
@@ -64,10 +64,10 @@ const Post = ({ post }) => {
           id="comments"
         >
           <div className="w-full flex items-center justify-between py-6">
-            <h2 className="font-semibold text-2xl text-primary-950">
+            <h2 className="font-semibold text-2xl text-primary-950 dark:text-primary-200">
               COMMENTS
             </h2>
-            <button className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md">
+            <button className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md dark:text-primary-950 dark:bg-white">
               <GoPlus size={24} />
               <span>Add comment</span>
             </button>

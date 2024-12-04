@@ -9,7 +9,7 @@ const NewPost = () => {
   return (
     <div className="px-[10%] pt-[4rem] dark:bg-primary-950 min-h-[100vh]">
       <NavBar />
-      <div className="p-4 w-full border border-primary-200 flex flex-col gap-4">
+      <div className="p-4 w-full border border-primary-200 flex flex-col gap-4 dark:border-primary-700">
         <input
           placeholder="Post title"
           className="h-[2.5rem] px-4 border border-primary-200 focus:outline-none focus:border-2 focus:border-primary-950 dark:border-primary-700 dark:bg-primary-950 dark:text-primary-200"
