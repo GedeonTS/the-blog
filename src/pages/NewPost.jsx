@@ -14,12 +14,16 @@ const NewPost = () => {
           placeholder="Post title"
           className="h-[2.5rem] px-4 border border-primary-200 focus:outline-none focus:border-2 focus:border-primary-950 dark:border-primary-700 dark:bg-primary-950 dark:text-primary-200"
         />
-        <label
+        {/* <label
           htmlFor="file-input"
           className="w-full py-4 flex items-center justify-center border border-primary-200 cursor-pointer text-primary-700 dark:border-primary-700"
         >
           <CiImageOn size={128} />
-        </label>
+        </label> */}
+        <input
+          placeholder="Image Url"
+          className="h-[2.5rem] px-4 border border-primary-200 focus:outline-none focus:border-2 focus:border-primary-950 dark:border-primary-700 dark:bg-primary-950 dark:text-primary-200"
+        />
         <input
           id="file-input"
           type="file"

@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ToggleThemeBtn from "./ToggleThemeBtn";
+import LoginPopup from "../popups/LoginPopup";
+import SignUpPopup from "../popups/SignUpPopup";
 
 const NavBar = () => {
   const location = useLocation();
+
+  const [isLogingIn, setIsLogingIn] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
   return (
     <nav className="h-[3rem] px-8 flex items-center justify-between border-b border-b-primary-100 bg-white fixed top-0 left-0 right-0 dark:text-white dark:bg-primary-950 dark:border-primary-700">
+      {isLogingIn && (
+        <LoginPopup
+          closeHandler={() => setIsLogingIn(false)}
+          signUpHandler={() => {
+            setIsLogingIn(false);
+            setIsSigningUp(true);
+          }}
+        />
+      )}
+      {isSigningUp && (
+        <SignUpPopup
+          closeHandler={() => setIsSigningUp(false)}
+          loginHandler={() => {
+            setIsLogingIn(true);
+            setIsSigningUp(false);
+          }}
+        />
+      )}
       <h1 className="font-semibold">Ushindi's Blog</h1>
       <ul className="flex gap-4 items-center font-semibold">
         {location.pathname === "/" && (
@@ -39,6 +62,14 @@ const NavBar = () => {
               new post
             </div>
           </Link>
+        </li>
+        <li>
+          <button
+            className="text-primary-950 dark:text-primary-200"
+            onClick={() => setIsLogingIn(true)}
+          >
+            Login
+          </button>
         </li>
         <li>
           <ToggleThemeBtn />

@@ -7,6 +7,8 @@ import store from "./redux/store";
 import NewPost from "./pages/NewPost";
 import Post from "./pages/Post";
 import ScrollToTop from "./components/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route exact path="/newpost" element={<NewPost />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer autoClose={2000} hideProgressBar={true} />
     </Provider>
   );
 }

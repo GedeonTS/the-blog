@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Menu from "../components/Menu";
 import "./styles.css";
 import horizon from "../assets/horizon.jpg";
@@ -6,16 +6,40 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
 import CircularIconBtn from "../components/CircularIconBtn";
-import { LiaLinkedin } from "react-icons/lia";
-import { BsLinkedin, BsMedium, BsTwitter } from "react-icons/bs";
-import { FaLinkedin, FaMedium } from "react-icons/fa";
+import { BsMedium, BsTwitter } from "react-icons/bs";
 import { GrGithub } from "react-icons/gr";
-import { PiOpenAiLogo } from "react-icons/pi";
 import { FiLinkedin } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { postMessage } from "../redux/slices/messages/messagesActions";
+import { toast } from "react-toastify";
+import { resetMessagePosted } from "../redux/slices/messages/messagesSlice";
 
 function Homepage() {
-  const text =
-    "Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1Post lorem ipsum dolor sit atem 1";
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const { messagePosted } = useSelector((state) => state.messages);
+
+  const submitMessageHandler = () => {
+    const newMessage = { message, subject, email };
+
+    if (!message || !email || !subject) {
+      toast.error("All fields are required!");
+      retur;
+    }
+    dispatch(postMessage({ message: newMessage }));
+  };
+
+  useEffect(() => {
+    if (!messagePosted) return;
+    setEmail("");
+    setSubject("");
+    setMessage("");
+    dispatch(resetMessagePosted());
+  }, [messagePosted]);
   return (
     <div className=" dark:bg-primary-950">
       <NavBar />
@@ -91,21 +115,30 @@ function Homepage() {
         <div className="w-full grid sm:grid-cols-1 lg:grid-cols-2 gap-4 p-4">
           <div className="w-full grid grid-cols-1 gap-4">
             <input
-              type="text"
+              type="email"
+              value={email}
               className="h-[3rem] pl-4 focus:outline-none border border-primary-300 dark:text-primary-300 dark:bg-primary-950 dark:border-primary-700 w-full focus:border-2 focus:border-primary-950"
               placeholder="Your email address"
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
               className="h-[3rem] pl-4 focus:outline-none border border-primary-300 dark:bg-primary-950  dark:text-primary-300 dark:border-primary-700 w-full focus:border-2 focus:border-primary-950"
               placeholder="Subject"
+              onChange={(e) => setSubject(e.target.value)}
+              value={subject}
             />
             <textarea
               className="h-[20rem] p-4 focus:outline-none border border-primary-300 dark:text-primary-300 dark:bg-primary-950 dark:border-primary-700 w-full focus:border-2 focus:border-primary-950"
               placeholder="Your message"
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
             ></textarea>
             <div className="w-full flex items-center justify-center">
-              <button className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md dark:bg-primary-400 dark:text-primary-950">
+              <button
+                className="bg-primary-950 h-[2.4rem] px-8 text-white rounded-md dark:bg-primary-400 dark:text-primary-950"
+                onClick={submitMessageHandler}
+              >
                 Submit
               </button>
             </div>
