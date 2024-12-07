@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import planeImg from "../mockingdata/images/serve-air-airplane.jpg";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaRegCommentAlt } from "react-icons/fa";
 import Footer from "../components/Footer";
@@ -55,10 +54,20 @@ const Post = () => {
             </p>
           </div>
           <div className="flex gap-4 mt-6 text-primary-950 dark:text-primary-200">
-            <AiOutlineLike size={24} onClick={() => setIsLogingIn(true)} />
-            <AiFillLike size={24} />
-            <a href="#comments">
-              <FaRegCommentAlt size={24} />
+            <div className="flex gap-1 items-center">
+              {currentPost.likes?.includes(
+                (like) => like.user_id === currentUser?.id
+              ) ? (
+                <AiFillLike size={24} />
+              ) : (
+                <AiOutlineLike size={24} onClick={() => setIsLogingIn(true)} />
+              )}
+              <p className="text-[20px]">{currentPost.likes?.length}</p>
+            </div>
+
+            <a href="#comments" className="flex gap-1 items-center">
+              <FaRegCommentAlt size={22} />
+              <p className="text-[20px]">{currentPost.comments?.length}</p>
             </a>
           </div>
         </div>
