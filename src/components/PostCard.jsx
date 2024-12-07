@@ -1,10 +1,10 @@
 import React from "react";
 import placeholderImage from "../mockingdata/images/serve-air-airplane.jpg";
 import { useNavigate } from "react-router-dom";
-const PostCard = () => {
+const PostCard = ({ post }) => {
   const navigate = useNavigate();
   const clickHandler = () => {
-    navigate("/posts/1");
+    navigate(`/posts/${post.id}`);
   };
   return (
     <div
@@ -12,16 +12,17 @@ const PostCard = () => {
       onClick={clickHandler}
     >
       <div>
-        <img src={placeholderImage} alt="" />
+        <img src={post.image} alt={post.title} />
       </div>
       <div>
-        <p className="text-blue-400 text-sm">Jan, 13 2024</p>
+        <p className="text-blue-400 text-sm">
+          {new Date(post.created_at).toDateString()}
+        </p>
         <h3 className="font-semibold text-primary-950 dark:text-primary-300">
-          React native development
+          {post.title}
         </h3>
         <p className="text-primary-700 text-sm">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste
-          accusantium et incidunt...
+          {post.post_sections[0]?.content.slice(0, 100)}...
         </p>
       </div>
     </div>

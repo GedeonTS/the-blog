@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { postMessage } from "../redux/slices/messages/messagesActions";
 import { toast } from "react-toastify";
 import { resetMessagePosted } from "../redux/slices/messages/messagesSlice";
+import { Link } from "react-router-dom";
+import { getPosts } from "../redux/slices/posts/postActions";
 
 function Homepage() {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ function Homepage() {
   const [message, setMessage] = useState("");
 
   const { messagePosted } = useSelector((state) => state.messages);
+  const { posts } = useSelector((state) => state.posts);
 
   const submitMessageHandler = () => {
     const newMessage = { message, subject, email };
@@ -40,6 +43,10 @@ function Homepage() {
     setMessage("");
     dispatch(resetMessagePosted());
   }, [messagePosted]);
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, []);
   return (
     <div className=" dark:bg-primary-950">
       <NavBar />
@@ -96,14 +103,16 @@ function Homepage() {
           Recent posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <PostCard />
+          {posts.map((post) => (
+            <PostCard post={post} />
           ))}
         </div>
         <div className="flex items-center justify-center">
-          <button className="h-[2.4rem] px-[2rem] rounded-md bg-primary-950 text-white self-center dark:bg-primary-300 dark:text-primary-950">
-            See all
-          </button>
+          <Link to={"/blog"}>
+            <div className="h-[2.4rem] px-[2rem] rounded-md bg-primary-950 text-white self-center dark:bg-primary-300 dark:text-primary-950 flex items-center justify-center">
+              See all
+            </div>
+          </Link>
         </div>
       </section>
       <section className="w-full pt-6" id="contact">

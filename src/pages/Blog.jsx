@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
 import Footer from "../components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../redux/slices/posts/postActions";
 
 function Blog() {
+  const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.posts);
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, []);
+
+  useEffect(() => {
+    console.log(posts);
+  }, [posts]);
   return (
     <div className="dark:bg-primary-950 dark:text-white">
       <NavBar />
@@ -31,11 +43,11 @@ function Blog() {
           Recent posts
         </h2>
         <div className="w-full md:w-[75%] mx-auto my-4 gap-4">
-          <PostCard />
+          {posts[0] && <PostCard post={posts[0]} />}
         </div>
         <div className="w-full md:w-[75%] mx-auto grid-cols-1 md:grid-cols-2 grid gap-4">
-          <PostCard />
-          <PostCard />
+          {posts[1] && <PostCard post={posts[0]} />}
+          {posts[2] && <PostCard post={posts[0]} />}
         </div>
       </section>
       <section className="w-full p-4">
@@ -43,8 +55,8 @@ function Blog() {
           All the posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <PostCard />
+          {posts.slice(2, posts.length - 1).map((post) => (
+            <PostCard post={post} />
           ))}
         </div>
       </section>
