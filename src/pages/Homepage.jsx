@@ -103,7 +103,7 @@ function Homepage() {
           Recent posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
-          {posts.map((post) => (
+          {posts.slice(0, 6).map((post) => (
             <PostCard post={post} />
           ))}
         </div>

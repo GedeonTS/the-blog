@@ -46,8 +46,8 @@ function Blog() {
           {posts[0] && <PostCard post={posts[0]} />}
         </div>
         <div className="w-full md:w-[75%] mx-auto grid-cols-1 md:grid-cols-2 grid gap-4">
-          {posts[1] && <PostCard post={posts[0]} />}
-          {posts[2] && <PostCard post={posts[0]} />}
+          {posts[1] && <PostCard post={posts[1]} />}
+          {posts[2] && <PostCard post={posts[2]} />}
         </div>
       </section>
       <section className="w-full p-4">
@@ -55,7 +55,7 @@ function Blog() {
           All the posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10">
-          {posts.slice(2, posts.length - 1).map((post) => (
+          {posts.slice(3, posts.length).map((post) => (
             <PostCard post={post} />
           ))}
         </div>
