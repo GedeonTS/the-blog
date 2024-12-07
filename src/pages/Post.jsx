@@ -9,19 +9,45 @@ import SignUpPopup from "../popups/SignUpPopup";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPost } from "../redux/slices/posts/postActions";
+import { postComment } from "../redux/slices/comments/commentsActions";
+import { resetCommentPosted } from "../redux/slices/comments/commentsSlice";
 
 const Post = () => {
-  const { id } = useParams();
+  const { postId } = useParams();
   const dispatch = useDispatch();
 
   const { currentPost } = useSelector((state) => state.posts);
+  const { currentUser } = useSelector((state) => state.users);
+  const { commentPosted } = useSelector((state) => state.comments);
 
   const [isLogingIn, setIsLogingIn] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
+  const [isAddingComment, setIsAddingComment] = useState(false);
+  const [comment, setComment] = useState("");
+
+  const submitCommentHandler = () => {
+    dispatch(
+      postComment({
+        comment: { user_id: currentUser.id, comment },
+        post_id: postId,
+      })
+    );
+  };
 
   useEffect(() => {
-    dispatch(getPost({ id }));
+    dispatch(getPost({ postId }));
   }, []);
+
+  useEffect(() => {
+    if (!commentPosted) return;
+    dispatch(resetCommentPosted());
+    setIsAddingComment(false);
+  }, [commentPosted]);
+
+  useEffect(() => {
+    console.log(currentPost);
+  }, [currentPost]);
+
   return (
     <div className="w-full min-h-0[100vh] dark:bg-primary-950">
       <NavBar />
@@ -87,21 +113,59 @@ const Post = () => {
       </section>
       <section className="w-full px-[12.5%]">
         <section
-          className="w-full border-t border-primary-300 mt-8"
+          className="w-full border-t border-primary-300 my-8"
           id="comments"
         >
           <div className="w-full flex items-center justify-between py-6">
             <h2 className="font-semibold text-2xl text-primary-950 dark:text-primary-200">
               COMMENTS
             </h2>
-            <button
-              className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md dark:text-primary-950 dark:bg-white"
-              onClick={() => setIsSigningUp(true)}
-            >
-              <GoPlus size={24} />
-              <span>Add comment</span>
-            </button>
+            {!isAddingComment && (
+              <button
+                className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md dark:text-primary-950 dark:bg-white"
+                onClick={() => setIsAddingComment(true)}
+              >
+                <GoPlus size={24} />
+                <span>Add comment</span>
+              </button>
+            )}
           </div>
+          {isAddingComment && (
+            <div className="w-full grid grid-cols-1 gap-4">
+              <textarea
+                className=" min-h-[10rem] px-4 border border-primary-200 focus:outline-none focus:border-2 focus:border-primary-950 pt-4 dark:bg-primary-950 dark:border-primary-700 dark:text-primary-100"
+                placeholder="new comment ..."
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <div className="w-full flex justify-end gap-4">
+                <button
+                  className="h-[2.4rem] dark:bg-primary-950 border border-primary-400 dark:border-0 dark:text-white flex items-center justify-center gap-2 px-4 rounded-md text-primary-950 bg-white"
+                  onClick={() => setIsAddingComment(false)}
+                >
+                  <span>cancel</span>
+                </button>
+                <button
+                  className="h-[2.4rem] bg-primary-950 text-white flex items-center justify-center gap-2 px-4 rounded-md dark:text-primary-950 dark:bg-white"
+                  onClick={submitCommentHandler}
+                >
+                  <span>submit</span>
+                </button>
+              </div>
+            </div>
+          )}
+        </section>
+        <section className="w-full grid grid-cols-1 gap-4">
+          {currentPost.comments?.map((comment) => (
+            <div className="w-full md:w-[75%] mx-auto border-b pb-4 mb-4 border-b-primary-200 dark:border-b-primary-800">
+              <p className=" text-primary-950 dark:text-primary-300">
+                {comment.comment}
+              </p>
+              <p className=" italic text-primary-300 dark:text-primary-600 text-end">
+                by {comment.user?.name}
+              </p>
+            </div>
+          ))}
         </section>
       </section>
       <Footer />

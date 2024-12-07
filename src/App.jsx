@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route exact path="/blog" element={<Blog />} />
-          <Route exact path="/posts/:id" element={<Post />} />
+          <Route exact path="/posts/:postId" element={<Post />} />
           <Route exact path="/newpost" element={<NewPost />} />
         </Routes>
       </BrowserRouter>

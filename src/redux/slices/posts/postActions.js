@@ -32,9 +32,9 @@ export const postPost = createAsyncThunk(
 
 export const getPost = createAsyncThunk(
   "posts/getPost",
-  async ({ id }, { rejectWithValue }) => {
+  async ({ postId }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${POSTS_URL}/${id}`);
+      const response = await axios.get(`${POSTS_URL}/${postId}`);
       if (response.status !== 200) throw new Error("Couldn't get post");
       return response.data.data.post;
     } catch (error) {

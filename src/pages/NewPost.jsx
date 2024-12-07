@@ -12,6 +12,7 @@ const NewPost = () => {
   const navigate = useNavigate();
 
   const { postPosted } = useSelector((state) => state.posts);
+  const { currentUser } = useSelector((state) => state.users);
 
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -106,19 +107,6 @@ const NewPost = () => {
             />
           </div>
         )}
-
-        {/* <label
-          htmlFor="file-input"
-          className="w-full py-4 flex items-center justify-center border border-primary-200 cursor-pointer text-primary-700 dark:border-primary-700"
-        >
-          <CiImageOn size={128} />
-        </label> */}
-        {/* <input
-          id="file-input"
-          type="file"
-          accept="image/*"
-          className="hidden"
-        /> */}
 
         {sections.map((section) => (
           <div className="w-full grid grid-cols-1 gap-4">

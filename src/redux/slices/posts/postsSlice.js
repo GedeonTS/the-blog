@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getPost, getPosts, postPost } from "./postActions";
-import posts from "../../../mockingdata/images/posts";
 import { toast } from "react-toastify";
+import { postComment } from "../comments/commentsActions";
 
 const initialState = {
-  posts: posts,
+  posts: [],
   isGettingPosts: false,
   isPostingPost: false,
   postPosted: false,
@@ -54,6 +54,13 @@ const postsSlice = createSlice({
     });
     builder.addCase(getPost.rejected, (state) => {
       return { ...state, isGettingPosts: false };
+    });
+    builder.addCase(postComment.fulfilled, (state, { payload }) => {
+      const { comments } = state.currentPost;
+      return {
+        ...state,
+        currentPost: { ...state.currentPost, comments: [payload, ...comments] },
+      };
     });
   },
 });

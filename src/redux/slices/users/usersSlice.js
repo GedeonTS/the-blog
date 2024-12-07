@@ -1,9 +1,9 @@
- import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getUsers, postUser } from "./usersActions";
 
 const initialState = {
   users: [],
-  currentUser: {},
+  currentUser: { id: 2 },
   isGettingUser: false,
   isPostingUser: false,
 };
