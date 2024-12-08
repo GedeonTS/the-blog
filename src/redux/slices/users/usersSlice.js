@@ -6,6 +6,7 @@ const initialState = {
   currentUser: { id: 2 },
   isGettingUser: false,
   isPostingUser: false,
+  isAuthenticated: false,
 };
 
 const usersSlice = createSlice({
@@ -29,6 +30,7 @@ const usersSlice = createSlice({
         ...state,
         isPostingUser: false,
         users: [payload, ...state.users],
+        isAuthenticated: true,
       };
     });
     builder.addCase(postUser.rejected, (state, { payload }) => {
