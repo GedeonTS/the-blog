@@ -20,9 +20,9 @@ export const getUsers = createAsyncThunk(
 
 export const postUser = createAsyncThunk(
   "users/postUser",
-  async (_, { rejectWithValue }) => {
+  async ({ user }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(USERS_URL);
+      const response = await axios.post(USERS_URL, { user });
       if (response.status !== 201) throw new Error("Couldn't post user");
       console.log(response);
       return response.data.data.user;
@@ -30,4 +30,9 @@ export const postUser = createAsyncThunk(
       return rejectWithValue(error.message);
     }
   }
+);
+
+export const loginUser = createAsyncThunk(
+  "users/loginUser",
+  async ({ user }, { rejectWithValue }) => {}
 );

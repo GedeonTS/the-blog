@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import TextInput from "../components/TextInput";
+import { toast } from "react-toastify";
+import { postUser } from "../redux/slices/users/usersActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUpPopup = ({ closeHandler, loginHandler }) => {
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("admin");
+
+  const { isAuthenticated } = useSelector((state) => state.users);
+
+  const submitHandler = () => {
+    if (name === "" || email === "" || password === "" || role === "") {
+      toast.warning("All fields are required!");
+      return;
+    }
+    const user = { name, email, password, role };
+    dispatch(postUser({ user }));
+  };
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    closeHandler();
+  }, [isAuthenticated]);
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 bg-primary-950/25 backdrop-blur-sm flex items-center justify-center">
       <div className="w-[35rem] p-4 bg-white  dark:bg-primary-950 dark:border-primary-700 dark:border">
@@ -23,13 +48,27 @@ const SignUpPopup = ({ closeHandler, loginHandler }) => {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4">
-          <TextInput placeholder="name" />
-          <TextInput placeholder="email" type="email" />
-          <TextInput placeholder="password" type="password" />
+          <TextInput
+            placeholder="name"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextInput
+            placeholder="email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextInput
+            placeholder="password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <div className="flex w-full items-center justify-center py-4">
-          <button className="px-4 rounded-md bg-primary-950 text-white h-[2.4rem] font-semibold dark:bg-primary-100 dark:text-primary-950">
-            Login
+          <button
+            className="px-4 rounded-md bg-primary-950 text-white h-[2.4rem] font-semibold dark:bg-primary-100 dark:text-primary-950"
+            onClick={submitHandler}
+          >
+            Sign up
           </button>
         </div>
         <div className="flex  items-end justify-end w-full">

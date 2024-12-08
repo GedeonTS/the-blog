@@ -3,9 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import ToggleThemeBtn from "./ToggleThemeBtn";
 import LoginPopup from "../popups/LoginPopup";
 import SignUpPopup from "../popups/SignUpPopup";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const location = useLocation();
+
+  const { currentUser, isAuthenticated } = useSelector((state) => state.users);
 
   const [isLogingIn, setIsLogingIn] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
@@ -57,19 +60,25 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link to={"/newpost"}>
-            <div className="h-[2rem] text-primary-950 hover:bg-primary-950 hover:text-white flex items-center justify-center px-4 rounded-lg border border-primary-300 dark:text-primary-400">
-              new post
-            </div>
-          </Link>
+          {currentUser?.role === "admin" && (
+            <Link to={"/newpost"}>
+              <div className="h-[2rem] text-primary-950 hover:bg-primary-950 hover:text-white flex items-center justify-center px-4 rounded-lg border border-primary-300 dark:text-primary-400">
+                new post
+              </div>
+            </Link>
+          )}
         </li>
         <li>
-          <button
-            className="text-primary-950 dark:text-primary-200"
-            onClick={() => setIsLogingIn(true)}
-          >
-            Login
-          </button>
+          {isAuthenticated ? (
+            <div>{currentUser.name}</div>
+          ) : (
+            <button
+              className="text-primary-950 dark:text-primary-200"
+              onClick={() => setIsLogingIn(true)}
+            >
+              Login
+            </button>
+          )}
         </li>
         <li>
           <ToggleThemeBtn />

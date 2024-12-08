@@ -44,6 +44,11 @@ const Post = () => {
   }, []);
 
   useEffect(() => {
+    console.log(currentUser);
+    console.log(currentPost?.likes);
+  }, [currentUser, currentPost?.likes]);
+
+  useEffect(() => {
     if (!commentPosted) return;
     dispatch(resetCommentPosted());
     setIsAddingComment(false);

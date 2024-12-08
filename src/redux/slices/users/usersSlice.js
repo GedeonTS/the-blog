@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getUsers, postUser } from "./usersActions";
+import { toast } from "react-toastify";
 
 const initialState = {
   users: [],
-  currentUser: { id: 2 },
+  currentUser: JSON.parse(localStorage.getItem("currentUser")) || {},
   isGettingUser: false,
   isPostingUser: false,
-  isAuthenticated: false,
+  isAuthenticated: JSON.parse(localStorage.getItem("isAuthenticated")) || false,
 };
 
 const usersSlice = createSlice({
@@ -26,6 +27,8 @@ const usersSlice = createSlice({
       return { ...state, isPostingUser: true };
     });
     builder.addCase(postUser.fulfilled, (state, { payload }) => {
+      localStorage.setItem("currentUser", JSON.stringify(payload));
+      localStorage.setItem("isAuthenticated", JSON.stringify(true));
       return {
         ...state,
         isPostingUser: false,
@@ -34,6 +37,7 @@ const usersSlice = createSlice({
       };
     });
     builder.addCase(postUser.rejected, (state, { payload }) => {
+      toast.error("Email address already taken");
       return { ...state, isPostingUser: false, error: payload };
     });
   },

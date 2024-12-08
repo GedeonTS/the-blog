@@ -66,6 +66,11 @@ const NewPost = () => {
     navigate("/blog");
   }, [postPosted]);
 
+  useEffect(() => {
+    if (currentUser.role === "admin") return;
+    navigate("/");
+  }, [currentUser]);
+
   return (
     <div className="px-[10%] pt-[4rem] dark:bg-primary-950 min-h-[100vh]">
       <NavBar />
