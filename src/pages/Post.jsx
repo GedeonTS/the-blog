@@ -27,6 +27,10 @@ const Post = () => {
   const [comment, setComment] = useState("");
 
   const submitCommentHandler = () => {
+    if (!isAuthenticated) {
+      setIsLogingIn(true);
+      return;
+    }
     dispatch(
       postComment({
         comment: { user_id: currentUser.id, comment },
@@ -36,6 +40,10 @@ const Post = () => {
   };
 
   const submitLike = () => {
+    if (!isAuthenticated) {
+      setIsLogingIn(true);
+      return;
+    }
     dispatch(postLike({ post_id: postId, user_id: currentUser.id }));
   };
 

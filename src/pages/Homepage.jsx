@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import Menu from "../components/Menu";
 import "./styles.css";
-import horizon from "../assets/horizon.jpg";
+import horizon from "../assets/gedeon.jpeg";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import PostCard from "../components/PostCard";
@@ -83,14 +83,14 @@ function Homepage() {
           </div>
           <div>
             <p className="text-lg text-primary-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ad
-              praesentium officiis. Veritatis sequi repellendus quos ducimus
-              recusandae accusantium dolores delectus repellat? Explicabo autem
-              nulla quibusdam in saepe minima corrupti quis velit quidem? Alias
-              sequi asperiores iste quam temporibus, eligendi suscipit esse
-              dolore neque earum. Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. Minus molestias ullam aut adipisci quod dolorem
-              error soluta aspernatur rerum itaque explicabo.
+              I am Ushindi Gedeon, a web developer with a user-centric approach
+              and over 3 years of remote work experience. My strong
+              problem-solving skills allow me to analyze complex problems and
+              identify the most effective solution. In addition to web
+              development, I also develop recommendation systems, AI chatbots,
+              and optimize big data processing to deliver efficient, scalable
+              solutions. I integrate machine learning models into applications
+              to automate processes like sales forecasting and reporting.
             </p>
             <button className="bg-primary-950 text-white h-[2.4rem] rounded-md px-4 my-6 dark:text-primary-950 dark:bg-primary-300">
               see portfolio
