@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getPost, getPosts, postPost } from "./postActions";
 import { toast } from "react-toastify";
 import { postComment } from "../comments/commentsActions";
+import { postLike } from "../likes/likesActions";
 
 const initialState = {
   posts: [],
@@ -60,6 +61,13 @@ const postsSlice = createSlice({
       return {
         ...state,
         currentPost: { ...state.currentPost, comments: [payload, ...comments] },
+      };
+    });
+    builder.addCase(postLike.fulfilled, (state, { payload }) => {
+      const { currentPost } = state;
+      return {
+        ...state,
+        currentPost: { ...currentPost, likes: [...currentPost.likes, payload] },
       };
     });
   },

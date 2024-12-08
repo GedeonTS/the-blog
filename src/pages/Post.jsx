@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPost } from "../redux/slices/posts/postActions";
 import { postComment } from "../redux/slices/comments/commentsActions";
 import { resetCommentPosted } from "../redux/slices/comments/commentsSlice";
+import { postLike } from "../redux/slices/likes/likesActions";
 
 const Post = () => {
   const { postId } = useParams();
@@ -34,6 +35,10 @@ const Post = () => {
     );
   };
 
+  const submitLike = () => {
+    dispatch(postLike({ post_id: postId, user_id: currentUser.id }));
+  };
+
   useEffect(() => {
     dispatch(getPost({ postId }));
   }, []);
@@ -43,10 +48,6 @@ const Post = () => {
     dispatch(resetCommentPosted());
     setIsAddingComment(false);
   }, [commentPosted]);
-
-  useEffect(() => {
-    console.log(currentPost);
-  }, [currentPost]);
 
   return (
     <div className="w-full min-h-0[100vh] dark:bg-primary-950">
@@ -84,9 +85,13 @@ const Post = () => {
               {currentPost.likes?.includes(
                 (like) => like.user_id === currentUser?.id
               ) ? (
-                <AiFillLike size={24} />
+                <div className="hover:cursor-pointer">
+                  <AiFillLike size={24} onClick={submitLike} />
+                </div>
               ) : (
-                <AiOutlineLike size={24} onClick={() => setIsLogingIn(true)} />
+                <div className="hover:cursor-pointer">
+                  <AiOutlineLike size={24} onClick={submitLike} />
+                </div>
               )}
               <p className="text-[20px]">{currentPost.likes?.length}</p>
             </div>
